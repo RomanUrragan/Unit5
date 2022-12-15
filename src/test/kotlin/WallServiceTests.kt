@@ -14,14 +14,13 @@ class WallServiceTests {
 
     @Test
     fun testAdd() {
-
         val result = WallService.add(post)
-        assertNotEquals(post.id, result.id)
+        assertNotEquals(post.id+1, result.id)
         assertEquals(post.text, result.text)
     }
 
     @Test
-    fun update() {
+    fun updateTrue() {
         val addedPost = WallService.add(post)
         val updatedPost = Post(
             id = addedPost.id,
@@ -29,6 +28,11 @@ class WallServiceTests {
         )
         val resultTrue = WallService.update(updatedPost)
         assertTrue(resultTrue)
+
+    }
+    @Test
+    fun updateFalse(){
+        val addedPost = WallService.add(post)
         val resultFalse = WallService.update(Post(id = addedPost.id + 1))
         assertFalse(resultFalse)
     }
