@@ -18,7 +18,7 @@ object NoteService {
         notes = TreeMap<Int, Note>()
         comments = HashSet<Comment>()
         nextId = 1
-
+        nextCommentId = 1
     }
 
     //создает заметку типа Note, добавляет в карту заметок, возвращает индекс добавленной заметки
