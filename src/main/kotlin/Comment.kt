@@ -1,18 +1,18 @@
-private var nextCommentId: Int = 1
+var nextCommentId: Int = 1
 
 class Comment(
     var postId: Int = 0,
-    val fromId: Int = 0,
-    val date: Long = System.currentTimeMillis(),
-    val text: String = "Some text",
-    val donut: Donut = Donut(),
-    val replyToUser: Int = 0,
-    val attachments: Array<Attachment> = emptyArray(),
-    val parentsStack: Array<Int> = emptyArray(),
-    val commentThread: CommentThread = CommentThread()
+    var fromId: Int = 0,
+    var date: Long = System.currentTimeMillis(),
+    var text: String = "Some text",
+    var donut: Donut = Donut(),
+    var replyToUser: Int = 0,
+    var attachments: Array<Attachment> = emptyArray(),
+    var parentsStack: Array<Int> = emptyArray(),
+    var commentThread: CommentThread = CommentThread(),
+    var isDeleted: Boolean = false
 ) {
-
-    val id = nextCommentId++
+    var id = nextCommentId++
 }
 
 data class CommentThread(
